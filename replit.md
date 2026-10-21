@@ -1,6 +1,6 @@
-# [Project name]
+# CampusBite
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+CampusBite is a vegetarian college canteen ordering app and college database mini project. Students can browse the menu, place orders, and track them through a single automatic kitchen preparation queue.
 
 ## Run & Operate
 
@@ -22,23 +22,29 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/campusbite/src/App.tsx` — menu, cart, favorites, orders, and admin UI
+- `artifacts/campusbite/src/lib/campusbite.ts` — Supabase/local-demo data access and queue manager
+- `artifacts/campusbite/supabase/migrations/` — SQL updates for the existing Supabase order schema
+- `artifacts/campusbite/public/assets/` — CampusBite logo and original menu photography
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- Keep the supplied Supabase RPC workflow when the app is configured with Supabase.
+- Use local storage only when Supabase settings are absent; local demo orders stay in one browser.
+- Persist preparation start times so countdowns resume after a refresh.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+Students can search vegetarian dishes, manage a cart, place orders, save favorites, and track kitchen progress. The admin area retains order, menu, inventory, and sales-report sections.
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- Preserve the existing CampusBite experience and branding when adding features.
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- Supabase mode requires applying the CampusBite queue migration before starting the app.
+- Local demo orders do not sync between devices or users.
 
 ## Pointers
 
